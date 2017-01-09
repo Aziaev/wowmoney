@@ -1,0 +1,122 @@
+/* Index page */
+.parallax-container {
+    height: 700px;
+}
+
+.indexfeatures {
+    padding-bottom: 20px;
+}
+
+.wowbalance {
+    text-align: center;
+}
+
+.operations-paralax {
+    height: 400px;
+}
+
+.operations {
+    margin-top: 20px;
+}
+
+.body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.carousel {
+    height: 200px !important;
+}
+
+.image_container {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    line-height: 150px;
+}
+
+.image_container img {
+    vertical-align: middle;
+}
+
+.card-reveal-title {
+    padding-left: 50px;
+}
+
+.description {
+    font-style: italic;
+}
+
+.operationPic {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 140px;
+    width: 140px;
+}
+
+.container .row {
+    margin-bottom: 0px;
+}
+
+.card .card-title {
+    padding-left: 10px;
+}
+
+/* Left panel settings */
+.leftpanel h4 {
+    margin: 0rem 0 0.912rem 0;
+}
+
+.leftpanel h5 {
+    margin: 0.0rem 0 0.656rem 0;
+}
+
+.leftpaneltotalbalance {
+    margin-top: 0px;
+}
+
+.leftpanel p {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+/* Logo */
+.brand-logo img {
+    margin-top: 7px;
+    height: 50px;
+    width: 130px;
+}
+
+/* Lean modal */
+#lean_overlay {
+    position: fixed;
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
+}
+
+/* Login page */
+.loginbutton {
+    margin-top: 65px;
+}
+
+/* navbar */
+/*li {*/
+    /*margin-left: 25px;*/
+/*}*/
+
+/*.errormessage {*/
+    /*margin-top: 20px;*/
+/*}*/

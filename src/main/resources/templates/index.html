@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <link rel="icon" href="/icons/favicon.ico"/>
+
+    <title>wowmoney webapp</title>
+
+    <link rel="stylesheet" href="/css/materialize.css"/>
+    <link rel="stylesheet" href="/css/custom.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+
+</head>
+
+<body>
+
+<div th:replace="fragments/nav :: nav"/>
+
+<div class="parallax-container">
+    <div class="container" style="padding-top: 10%">
+        <h1 class="white-text" style="text-align: center; vertical-align: middle">
+            Hello
+            <span sec:authorize="!isAuthenticated()">guest</span>
+            <span sec:authorize="isAuthenticated()"> <span th:text="${username}"/></span>
+            !
+        </h1>
+        <h4 class="white-text" style="text-align: center; vertical-align: middle">
+            <div sec:authorize="isAuthenticated()">
+                Login and start to use this awesome financial stuff today and be happy
+            </div>
+
+            <div sec:authorize="!isAuthenticated()">
+                Go operations page and check your money blablabla etc wowaweewa
+            </div>
+        </h4>
+    </div>
+    <div class="parallax">
+        <img src="/images/parallax4.png" style="display: block; transform: translate3d(-50%, 354px, 0px);"/>
+    </div>
+</div>
+<div class="section white">
+    <div class="row container" id="whatisthis">
+        <h3 class="header">wowmoney </h3>
+        <p class="grey-text text-darken-3 lighten-3">
+            Personal budget multiplatform java based awesome feature. App builded with this stuff:</p>
+        <div class="indexfeatures">
+            <span>Core:</span><br/>
+            <div class="chip">Java 1.8</div>
+            <div class="chip">Spring Boot</div>
+            <div class="chip">Spring Security</div>
+            <div class="chip">JPA</div>
+        </div>
+        <div class="indexfeatures">
+            <span>Easy code:</span><br/>
+            <div class="chip">Lombok 1.16.10</div>
+        </div>
+        <div class="indexfeatures">
+            <span>Web:</span><br/>
+            <div class="chip">Thymeleaf 3.0</div>
+            <div class="chip">Materialize CSS</div>
+        </div>
+        <div class="indexfeatures">
+            <span>Server and database:</span><br/>
+            <div class="chip">Tomcat 8.0.36</div>
+            <div class="chip">PostgreSQL</div>
+            <div class="chip">pgAdmin III</div>
+        </div>
+        <div class="indexfeatures">
+            <span>IDE:</span><br/>
+            <div class="chip">Intellij IDEA 2016.2.5</div>
+        </div>
+        <!--<iframe src="https://ghbtns.com/github-btn.html?user=aziaev&repo=wowmoneywebapp&type=watch&count=true&size=large&v=2" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>-->
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="container">
+        <div class="center-align" style="padding-top: 15%">
+            <img src="images/logoalpha.png" height="216" width="524"/>
+            <!--<h1 class="valign white-text">-->
+            <!--<span sec:authorize="!isAuthenticated()">Register and login now!</span>-->
+            <!--<span sec:authorize="isAuthenticated()">Check your balance now!</span>-->
+            <!--</h1>-->
+        </div>
+    </div>
+    <div class="parallax">
+        <img src="/images/parallax2.jpg" style="display: block; transform: translate3d(-50%, 331px, 0px);"/>
+    </div>
+</div>
+<div th:replace="fragments/footer :: footer"/>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/wow.js"></script>
+</body>
+</html>

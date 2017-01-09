@@ -1,0 +1,22 @@
+<nav class="indigo darken-3">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">wowmoney</a>
+            <div sec:authorize="!isAuthenticated()">
+                Only for not autenticated
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/#whatisthis">What is this?</a></li>
+                    <li><a href="/user/create">Register</a></li>
+                    <li style="margin-left: 25px"><i class="large material-icons"><a href="/login">perm_identity</a></i>
+                    </li>
+                </ul>
+            </div>
+
+            <div sec:authorize="isAuthenticated()">
+                This content is only shown to authenticated users.
+            </div>
+
+
+        </div>
+    </div>
+</nav>

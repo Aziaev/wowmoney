@@ -1,0 +1,29 @@
+<h1 class="white-text">
+    Hello
+    <span sec:authorize="!isAuthenticated()">guest</span>
+    <span sec:authorize="isAuthenticated()"><span sec:authentication="name">autentication name</span></span>
+    !
+</h1>
+<h4class="white-text">
+    <h4>1</h4>
+    <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+    </div>
+
+    <h4>2 not auth</h4>
+    <div sec:authorize="!isAuthenticated()">
+        Only for not autenticated
+    </div>
+
+    <h4>3</h4>
+
+
+    <h4>4</h4>
+    <div sec:authorize="isAuthenticated()">
+        This content is only shown to authenticated users.
+    </div>
+
+    <h4>5. The value of the "name" property of the authentication object should appear here.</h4>
+    username is <span sec:authentication="name"/>
+
+</h4>

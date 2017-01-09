@@ -1,0 +1,50 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" layout:decorator="layout">
+<div layout:fragment="content">
+    <div class="container operations">
+        <div class="row">
+            <div class="col s2"></div>
+            <div class="col s8">
+                <h3 class="center-align">Your statistics</h3>
+                <p class="center-align lead">Income/expences ratio</p>
+            </div>
+            <div class="col s2"></div>
+        </div>
+        <div class="row">
+            <div class="col s2 text right-align">
+                Income
+            </div>
+            <div class="col s8">
+                    <div class="progress ">
+                        <div class="determinate" th:style="|width: ${incomeRatio}%|"></div>
+                    </div>
+            </div>
+            <div class="col s2">
+                <span th:text="${incomeSum} >= 0 ?
+                    ${#numbers.formatDecimal(incomeSum, 0, 'WHITESPACE', 2, 'POINT')}
+                    + ' ' + ${currency}
+                    :
+                    ${#numbers.formatDecimal('-'+(-1*incomeSum), 0, 'WHITESPACE', 2, 'POINT')}
+                    + ' ' + ${currency}"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s2 text right-align">
+                Expences
+            </div>
+            <div class="col s8">
+                    <div class="progress red lighten-5">
+                        <div class="determinate red" th:style="|width: ${outcomeRatio}%|"></div>
+                    </div>
+            </div>
+            <div class="col s2">
+                <span th:text="${outcomeSum} >= 0 ?
+                    ${#numbers.formatDecimal(outcomeSum, 0, 'WHITESPACE', 2, 'POINT')}
+                    + ' ' + ${currency}
+                    :
+                    ${#numbers.formatDecimal('-'+(-1*outcomeSum), 0, 'WHITESPACE', 2, 'POINT')}
+                    + ' ' + ${currency}"/>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

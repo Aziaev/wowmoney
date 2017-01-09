@@ -1,0 +1,79 @@
+<html layout:decorator="layout">
+<div layout:fragment="content">
+    <nav>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">wowmoney</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="active"><a href="/operations">Operations</a></li>
+                    <li style="margin-left: 25px">Statistics</li>
+                    <li style="margin-left: 25px">Settings</li>
+                    <li style="margin-left: 25px"><i class="large material-icons">power_settings_new</i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="starter-template">
+            <div class="wowbalance"><p>Your balance</p><h1><p th:text="${balance}"/></h1>
+            </div>
+            <p>
+            <h3>You can add, edit, delete all operations and posts</h3></p>
+            <p class="lead">Check your operations here</p>
+        </div>
+    </div>
+    <div class="container">
+        <table class="table table-striped" id="operations_list">
+
+            <thead>
+            <tr>
+                <th>Owner ID</th>
+                <th>Date</th>
+                <th>Type</th>
+                <th>Category</th>
+                <th>Picture</th>
+                <th>Account</th>
+                <th>Value</th>
+                <th>Currency</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-th-each="operation : ${operations}">
+                <td class="ownerId" data-th-text="${operation.ownerId}"></td>
+                <td class="timestamp" data-th-text="${operation.timestamp}"></td>
+                <td class="operationType" data-th-text="${operation.operationType}"></td>
+                <td class="operationCategory" data-th-text="${operation.operationCategory}"></td>
+                <td class="operationPic" data-th-text="${operation.operationPic}"></td>
+                <td class="account" data-th-text="${operation.account}"></td>
+                <td class="value" data-th-text="${operation.value}"></td>
+                <td class="currency" data-th-text="${operation.currency}"></td>
+                <td class="description" data-th-text="${operation.description}"></td>
+                <td>
+                    <a th:href="@{'/operations/{id}/edit'(id=${operation.id})}" class="edit"
+                       th:attr="name=${operation.operationCategory}">
+                    <i class="small material-icons">mode_edit</i>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{'/operations/{id}/delete'(id=${operation.id})}" class="delete"
+                       th:attr="name=${operation.operationCategory}">
+                    <i class="small material-icons">delete</i>
+                    </a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+
+        <!--Action button-->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large waves-effect waves-light red" href="/operations/new"><i class="material-icons">add</i></a>
+        </div>
+    </div>
+</div>
+</html>

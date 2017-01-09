@@ -1,0 +1,17 @@
+<html layout:decorator="layout">
+<div layout:fragment="content">
+    <form method="post" name="comment_form" id="comment_form" action="/operations/update" role="form">
+        <div class="form-group">
+            <label for="message">operationType</label> <textarea rows="1" class="form-control" id="operationType" name="operationType" th:text="${operation.operationType}"/>
+            <label for="message">operationCategory</label> <textarea rows="1" class="form-control" id="operationCategory" name="operationCategory" th:text="${operation.operationCategory}"/>
+            <label for="message">operationPic</label> <textarea rows="1" class="form-control" id="operationPic" name="operationPic" th:text="${operation.operationPic}"/>
+            <label for="message">account</label> <textarea rows="1" class="form-control" id="account" name="account" th:text="${operation.account}"/>
+            <label for="message">value</label> <textarea rows="1" class="form-control" id="value" name="value" th:text="${operation.value}"/>
+            <label for="message">currency</label> <textarea rows="1" class="form-control" id="currency" name="currency" th:text="${operation.currency}"/>
+            <label for="message">description</label> <textarea rows="1" class="form-control" id="description" name="description" th:text="${operation.description}"/>
+        </div>
+        <input type="hidden" id="operation_id" rows="1" class="form-control" name="operation_id" th:value="${operation.id}"/>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</html>

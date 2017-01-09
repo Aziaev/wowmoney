@@ -1,0 +1,70 @@
+<html layout:decorator="layout">
+<div layout:fragment="content">
+    <nav>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">wowmoney</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="active"><a href="/operations">Operations</a></li>
+                    <li style="margin-left: 25px">Settings</li>
+                    <li style="margin-left: 25px"><i class="large material-icons">power_settings_new</i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="starter-template">
+            <div class="wowbalance"><h1>Add new operation</h1></div>
+        </div>
+    </div>
+    <div class="container">
+        <form method="post" name="comment_form" id="comment_form" action="/operations/create" role="form">
+            <div class="form-group">
+                <div class="input-field col s12">
+                    <select id="operationType" name="operationType">
+                        <option selected="true" disabled="true">Select operation type</option>
+                        <option th:each="operationType : ${operationTypes}"
+                                th:value="${operationType}" th:text="${operationType}">Credit card
+                        </option>
+                    </select>
+                </div>
+
+                <div class="input-field col s12">
+                    <select id="operationCategory" name="operationCategory">
+                        <option selected="true" disabled="true">Select category</option>
+                        <option th:each="operationCategory : ${operationCategories}"
+                                th:value="${operationCategory}" th:text="${operationCategory}">
+                            Credit card
+                        </option>
+                    </select>
+                </div>
+
+                <label for="account">Account</label>
+                <textarea rows="1" class="form-control" id="account" name="account"/>
+
+                <!--<label for="value">Value</label>-->
+                <!--<textarea rows="1" class="form-control" id="value" name="value"/>-->
+
+                <div class="input-field col s6">
+                    <input id="value" name="value" type="text" class="validate"/>
+                    <label for="value">Value</label>
+                </div>
+
+                <label for="currency">Currency</label>
+                <textarea rows="1" class="form-control" id="currency" name="currency"/>
+
+                <!--<label for="description">Description</label>-->
+                <!--<textarea rows="1" class="form-control" id="description" name="description"/>-->
+
+
+                <div class="input-field col s6">
+                    <input id="description" name="description" type="text" length="10">
+                    <label for="description">Input text</label>
+                </div>
+            </div>
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+</html>

@@ -1,0 +1,76 @@
+<html layout:decorator="layout">
+<div layout:fragment="content">
+    <div class="container">
+        <div class="starter-template">
+            <div class="wowbalance"><h1>Add new operation</h1></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m4 l3"></div>
+            <div class="col s12 m4 l6">
+                <form method="post" name="comment_form" id="comment_form" action="/operations/create" role="form">
+                    <div class="form-group">
+                        <div class="input-field col s12">
+                            <select id="operationType" name="operationType" required="true" >
+                                <!--<option selected="true" disabled="true">Select operation type</option>-->
+                                <option th:each="operationType : ${operationTypes}"
+                                        th:value="${operationType}"
+                                        th:text="${operationType}">Credit card
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <select id="operationCategory" name="operationCategory" required="true">
+                                <option selected="true" disabled="true">Select category</option>
+                                <option th:each="operationCategory : ${operationCategories}"
+                                        th:value="${operationCategory}"
+                                        th:text="${operationCategory}">
+                                    Credit card
+                                </option>
+                            </select>
+                        </div>
+
+                        <!--<label for="account">Account</label>-->
+                        <!--<textarea rows="1" class="form-control" id="account" name="account"/>-->
+                        <div class="input-field col s12">
+                            <select id="account" name="account" required="true">
+                                <option selected="true" disabled="true">Select account</option>
+                                <option th:each="account : ${accounts}"
+                                        th:value="${account}"
+                                        th:text="${account}">
+                                    Credit card
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="input-field col s7">
+                            <input id="value" name="value" type="number" step="0.01" required="true"/>
+                            <label for="value">Value</label>
+                        </div>
+
+                        <div class="input-field col s5">
+                            <select id="currency" name="currency" required="true">
+                                <option selected="true" disabled="true">Select currency</option>
+                                <option th:each="currency : ${currencies}"
+                                        th:value="${currency}"
+                                        th:text="${currency}">
+                                    Credit card
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="input-field col s12">
+                            <input id="description" name="description" type="text" length="20"/>
+                            <label for="description">Input text</label>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit" name="action" class="btn waves-effect waves-light">Submit</button>
+                </form>
+            </div>
+            <div class="col s12 m4 l3"></div>
+        </div>
+    </div>
+</div>
+</html>

@@ -1,0 +1,8 @@
+com\rabigol\wowmoneywebapp\Controllers\OperationController.class
+com\rabigol\wowmoneywebapp\domain\Operation.class
+com\rabigol\wowmoneywebapp\domain\OperationRepository.class
+com\rabigol\wowmoneywebapp\Controllers\PostController.class
+com\rabigol\wowmoneywebapp\Application.class
+com\rabigol\wowmoneywebapp\domain\Operation$OperationBuilder.class
+com\rabigol\wowmoneywebapp\domain\Post.class
+com\rabigol\wowmoneywebapp\domain\PostRepository.class

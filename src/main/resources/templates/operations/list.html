@@ -1,0 +1,98 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" layout:decorator="layout">
+<div layout:fragment="content">
+    <div class="container operations">
+        <div class="row">
+            <div class="col s4">
+                <div th:replace="fragments/fragment_left_panel :: fragment_left_panel"/>
+            </div>
+            <div class="col s8">
+                <h3 class="center-align">Your history</h3>
+                <p class="center-align lead">Create, update, delete is available</p>
+                <table class="table table-striped" id="operations_list">
+                    <tbody>
+                    <tr data-th-each="operation : ${operations}">
+                        <div class="card hoverable">
+                            <div class="card-content">
+                                <p class="ownerId" data-th-text="${operation.ownerId}" hidden="true"></p>
+                                <!--<p class="timestamp" data-th-text="${operation.timestamp}"></p>-->
+                                <div class="row">
+                                    <div class="col s3">
+                                        <img class="operationPic" th:src="|/icons/${operation.operationCategory}.png|"
+                                             height="180"
+                                             width="180"/>
+                                    </div>
+                                    <div class="col s9">
+                                        <div class="row">
+                                    <span class="card-title activator grey-text text-darken-4">
+                                            <span class="operationType"
+                                                  data-th-text="${operation.operationType}"></span>
+                                            <i class="material-icons right">more_vert</i>
+                                    </span>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col s8">
+
+                                                <p class="timestamp"
+                                                   data-th-text="${#dates.format(operation.timestamp * 1000, 'dd MMMM yy')}">
+                                                    28-Jun-2013</p>
+                                                <h5><span class="operationCategory"
+                                                          data-th-text="${operation.operationCategory}"></span>
+                                                    <i class="material-icons">trending_flat</i>
+                                                    <span class="account" data-th-text="${operation.account}"></span>
+                                                </h5>
+                                                <p></p>
+                                                <p></p>
+                                                <p class="description"><span
+                                                        class="grey-text text-lighten-1"># </span><span
+                                                        data-th-text="${operation.description}"
+                                                        class="grey-text text-lighten-1"></span>
+                                                </p>
+                                            </div>
+                                            <div class="col s4">
+                                                <!--<h4 class="right-align"><span class="value" data-th-text="${operation.value}"></span>-->
+                                                <h5 class="right-align"><span class="value"
+                                                                              data-th-text="${operation.value} >= 0 ?
+                                                                      ${#numbers.formatDecimal(operation.value/100+'.'+operation.value%100, 0, 'WHITESPACE', 2, 'POINT')} :
+                                                                      ${#numbers.formatDecimal('-'+(operation.value*-1)/100+'.'+(operation.value*-1)%100, 0, 'WHITESPACE', 2, 'POINT')}"></span>
+                                                </h5>
+                                                <p class="currency right-align"
+                                                   data-th-text="${operation.currency}"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-reveal-title center-align card-title grey-text text-darken-4">Edit or delete<i
+                                class="material-icons right">close</i></span>
+                                <div class="row">
+                                    <div class="col s3 center-align"></div>
+                                    <div class="col s3 center-align">
+                                        <a th:href="@{'/operations/{id}/edit'(id=${operation.id})}" class="edit"
+                                           th:attr="name=${operation.operationCategory}">
+                                            <i class="large material-icons">mode_edit</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s3 center-align">
+                                        <a th:href="@{'/operations/{id}/delete'(id=${operation.id})}" class="delete"
+                                           th:attr="name=${operation.operationCategory}">
+                                            <i class="large material-icons">delete</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s3 center-align"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Action button-->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large waves-effect waves  ight red" href="/operations/new"><i
+                    class="material-icons">add</i></a>
+        </div>
+    </div>
+</div>
+</html>

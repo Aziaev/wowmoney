@@ -1,0 +1,20 @@
+<nav class="indigo darken-3">
+    <div class="container">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo"><img src="/images/logoalphahover.png"/></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <div sec:authorize="!isAuthenticated()">
+                    <li><a href="/#whatisthis">What is this?</a></li>
+                    <li><a href="/user/create">Register</a></li>
+                    <li><a href="/login"><i class="material-icons right">input</i>Login</a></li>
+                </div>
+                <div sec:authorize="isAuthenticated()">
+                    <li><a href="/operations" title="Check your balance and operations">Operations</a></li>
+                    <li><a href="/operations/statistics" title="Statistics">Statistics</a></li>
+                    <li>Logged as <span th:text="${username}"/></li>
+                    <li><a href="/logout" onclick="Materialize.toast('Logging out', 4000)"><i class="material-icons left">perm_identity</i>Logout</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>

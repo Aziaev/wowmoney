@@ -1,0 +1,137 @@
+<fragment_left_panel>
+    <div class="row">
+        <div class="card-panel white leftpanel">
+            <div class="row">
+                <div class="col s6">
+                    <h5>Total balance</h5>
+                </div>
+                <div class="col s6 right-align leftpaneltotalbalance">
+                    <span th:text="${totalBalance} >= 0 ?
+                    ${#numbers.formatDecimal(totalBalance, 0, 'WHITESPACE', 2, 'POINT')}
+                    + ' ' + ${getCurrencyRUB}
+                    :
+                    ${#numbers.formatDecimal('-'+(-1*totalBalance), 0, 'WHITESPACE', 2, 'POINT')}
+                    + ' ' + ${getCurrencyRUB}" />
+                </div>
+            </div>
+            <p> </p>
+            <br />
+            <div class="row">
+                <div class="col s6"><span>Wallet</span></div>
+                <div class="col s6 right-align">
+                    <span th:text="
+                    ${walletBalanceRub} != 0 ?
+                    (
+                        ${walletBalanceRub} >= 0 ?
+                        ${#numbers.formatDecimal(walletBalanceRub, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyRUB}
+                        :
+                        ${#numbers.formatDecimal('-'+(-1*walletBalanceRub), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyRUB}
+                    )"/>
+                    <p>
+                    <span th:text="
+                    ${walletBalanceEur} != 0 ?
+                    (
+                        ${walletBalanceEur} >= 0 ?
+                        ${#numbers.formatDecimal(walletBalanceEur, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyEUR}
+                        :
+                        ${#numbers.formatDecimal('-'+(-1*walletBalanceEur), 0, 'WHITESPACE', 2, 'POINT')}
+                         + ' ' + ${getCurrencyEUR}
+                    )"/>
+                    </p>
+                    <p>
+                    <span th:text="
+                    ${walletBalanceUsd} != 0 ?
+                    (
+                        ${walletBalanceUsd} >= 0 ?
+                        ${#numbers.formatDecimal(walletBalanceUsd, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyUSD}
+                        :
+                        ${#numbers.formatDecimal('-'+(-1*walletBalanceUsd), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyUSD}
+                    )"/>
+                    </p>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col s6"><span>Bank card</span></div>
+                <div class="col s6 right-align">
+                    <span th:text="
+                    ${bankCardBalanceRub} != 0 ?
+                    (
+                        ${bankCardBalanceRub} >= 0 ?
+                        ${#numbers.formatDecimal(bankCardBalanceRub, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyRUB}
+                        :
+                        ${#numbers.formatDecimal('-'+(-1*bankCardBalanceRub), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyRUB}
+                    )"/>
+                    <p>
+                    <span th:text="
+                    ${bankCardBalanceEur} != 0 ?
+                    (
+                        ${bankCardBalanceEur} >= 0 ?
+                        ${#numbers.formatDecimal(bankCardBalanceEur, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyEUR}
+                        :
+                        ${#numbers.formatDecimal('-'+(-1*bankCardBalanceEur), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyEUR}
+                    )"/>
+                    </p>
+                    <p>
+                    <span th:text="
+                    ${bankCardBalanceUsd} != 0 ?
+                    (
+                        ${bankCardBalanceUsd} >= 0 ?
+                        ${#numbers.formatDecimal(bankCardBalanceUsd, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyUSD}
+                        :
+                        ${#numbers.formatDecimal('-'+(-1*bankCardBalanceUsd), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyUSD}
+                    )"/>
+                    </p>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col s6"><span>Bank account</span></div>
+                <div class="col s6 right-align">
+                    <span th:text="
+                    ${bankAccountBalanceRub} != 0 ?
+                    (
+                        ${bankAccountBalanceRub} >= 0 ?
+                        ${#numbers.formatDecimal(bankAccountBalanceRub, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyRUB} :
+                        ${#numbers.formatDecimal('-'+(-1*bankAccountBalanceRub), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyRUB}
+                    )"/>
+                    <p>
+                    <span th:text="
+                    ${bankAccountBalanceEur} != 0 ?
+                    (
+                        ${bankAccountBalanceEur} >= 0 ?
+                        ${#numbers.formatDecimal(bankAccountBalanceEur, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyEUR} :
+                        ${#numbers.formatDecimal('-'+(-1*bankAccountBalanceEur), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyEUR}
+                    )"/>
+                    </p>
+                    <p>
+                    <span th:text="
+                    ${bankAccountBalanceUsd} != 0 ?
+                    (
+                        ${bankAccountBalanceUsd} >= 0 ?
+                        ${#numbers.formatDecimal(bankAccountBalanceUsd, 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyUSD} :
+                        ${#numbers.formatDecimal('-'+(-1*bankAccountBalanceUsd), 0, 'WHITESPACE', 2, 'POINT')}
+                        + ' ' + ${getCurrencyUSD}
+                    )"/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</fragment_left_panel>
